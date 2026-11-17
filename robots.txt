@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://OWNER.github.io/REPO/sitemap.xml
+Sitemap: https://waranyulotuss.github.io/lotus-suka3/sitemap.xml
