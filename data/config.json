@@ -36,7 +36,10 @@
       "th": "https://www.lotuss.com/th",
       "en": "https://www.lotuss.com/en"
     },
-    "app": ""
+    "app": "",
+    "app_ios": "",
+    "app_android": "",
+    "_note": "app_ios = ลิงก์ App Store, app_android = ลิงก์ Google Play (ขอลิงก์ทางการจากส่วนกลาง), app = ลิงก์เดียวใช้ทั้งสอง (ถ้ามี). เว้นว่างถ้ายังไม่มี"
   },
   "images": {
     "hero": null,

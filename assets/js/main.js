@@ -112,7 +112,14 @@
     setLink($('#btn-line'), cfg.social.line);
     $('#btn-nav').href = mapsHref(); $('#btn-nav2').href = mapsHref();
     if (cfg.maps.review_link) { var r = $('#btn-review'); r.href = cfg.maps.review_link; r.hidden = false; }
-    if (cfg.official.app) { var a = $('#btn-app'); a.href = cfg.official.app; a.hidden = false; }
+    var o = cfg.official, ios = o.app_ios || o.app, and = o.app_android || o.app, same = ios && ios === and;
+    if (same) { var ap = $('#btn-app'); ap.href = ios; ap.hidden = false; }
+    else {
+      var bi = $('#btn-ios'), ba = $('#btn-android');
+      if (ios) { bi.href = ios; bi.hidden = false; } if (and) { ba.href = and; ba.hidden = false; }
+      if (/android/i.test(navigator.userAgent) && ba.parentNode) ba.parentNode.insertBefore(ba, bi); /* เครื่องไหนใช้ปุ่มนั้นก่อน */
+    }
+    var any = ios || and; $('#app-pending').hidden = !!any; $('#app-hint').hidden = !any;
     var q = cfg.geo.lat != null && cfg.geo.lng != null ? cfg.geo.lat + ',' + cfg.geo.lng : (cfg.maps.embed_query || L(cfg.name));
     $('#map').src = 'https://www.google.com/maps?q=' + encodeURIComponent(q) + '&hl=' + lang + '&z=16&output=embed';
     var ul = $('#contact-list'); ul.textContent = '';
@@ -163,7 +170,7 @@
     var s = document.createElement('script'); s.async = true; s.src = 'https://gc.zgo.at/count.js';
     s.setAttribute('data-goatcounter', 'https://' + code + '.goatcounter.com/count'); document.head.appendChild(s);
     function track(name) { try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'event/' + name + '-' + lang, title: name, event: true }); } catch (e) {} }
-    [['#btn-call', 'call'], ['#btn-nav', 'navigate'], ['#btn-nav2', 'navigate-map'], ['#btn-line', 'line'], ['#btn-web', 'order-web'], ['#btn-app', 'order-app'], ['#btn-review', 'review'], ['.langbtn', 'switch-lang']]
+    [['#btn-call', 'call'], ['#btn-nav', 'navigate'], ['#btn-nav2', 'navigate-map'], ['#btn-line', 'line'], ['#btn-web', 'order-web'], ['#btn-app', 'order-app'], ['#btn-ios', 'order-app-ios'], ['#btn-android', 'order-app-android'], ['#btn-review', 'review'], ['.langbtn', 'switch-lang']]
       .forEach(function (x) { var e = $(x[0]); if (e) e.addEventListener('click', function () { track(x[1]); }); });
     var tel = document.querySelector('#contact-list a[href^="tel:"]'); if (tel) tel.addEventListener('click', function () { track('call-contact'); });
   }

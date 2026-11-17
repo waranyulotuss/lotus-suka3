@@ -163,8 +163,12 @@ ${redirect}
   <p data-i18n="order.text">${esc(t['order.text'])}</p>
   <p class="actions actions--inline">
     <a class="btn btn--primary" id="btn-web" href="${cfg.official.web[lang]}" target="_blank" rel="noopener noreferrer"><span data-i18n="order.web">${esc(t['order.web'])}</span> <span aria-hidden="true">↗</span><span class="sr"> – <span data-i18n="order.newtab">${esc(t['order.newtab'])}</span></span></a>
-    <a class="btn btn--ghost" id="btn-app" href="#order" target="_blank" rel="noopener noreferrer" hidden><span data-i18n="order.app">${esc(t['order.app'])}</span> <span aria-hidden="true">↗</span><span class="sr"> – <span data-i18n="order.newtab">${esc(t['order.newtab'])}</span></span></a>
+    <a class="btn btn--primary" id="btn-ios" href="#order" target="_blank" rel="noopener noreferrer" hidden><span aria-hidden="true">🍎</span> <span data-i18n="order.ios">${esc(t['order.ios'])}</span><span class="sr"> – <span data-i18n="order.newtab">${esc(t['order.newtab'])}</span></span></a>
+    <a class="btn btn--primary" id="btn-android" href="#order" target="_blank" rel="noopener noreferrer" hidden><span aria-hidden="true">▶️</span> <span data-i18n="order.android">${esc(t['order.android'])}</span><span class="sr"> – <span data-i18n="order.newtab">${esc(t['order.newtab'])}</span></span></a>
+    <a class="btn btn--primary" id="btn-app" href="#order" target="_blank" rel="noopener noreferrer" hidden><span aria-hidden="true">📱</span> <span data-i18n="order.app">${esc(t['order.app'])}</span><span class="sr"> – <span data-i18n="order.newtab">${esc(t['order.newtab'])}</span></span></a>
   </p>
+  <p class="ph" id="app-pending" data-i18n="order.appPending">${esc(t['order.appPending'])}</p>
+  <p id="app-hint" hidden data-i18n="order.appHint">${esc(t['order.appHint'])}</p>
 </div></section>
 </main>
 
