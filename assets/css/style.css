@@ -117,3 +117,19 @@ h3{font-size:1.15rem;margin-top:1.5em}
   .cards{grid-template-columns:repeat(3,1fr)}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* products / faq / share / chips */
+.cats{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+.cats a{display:flex;flex-direction:column;gap:6px;min-height:104px;padding:16px;background:#fff;border:1px solid var(--line);border-radius:var(--r);color:var(--ink);text-decoration:none;font-weight:600;height:100%}
+.cats a:hover{border-color:var(--blue);box-shadow:0 4px 14px rgba(48,111,199,.15)}
+.cats .ico{width:44px;height:44px;font-size:1.4rem}
+.cats small{color:var(--blue-dark);font-weight:600}
+.benefits{margin:0 0 12px;padding-left:1.2em}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px;padding:0}
+.chips li{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.6);padding:4px 14px;border-radius:999px;font-weight:600}
+details{background:#fff;border:1px solid var(--line);border-radius:12px;margin:0 0 10px;padding:0 16px}
+summary{cursor:pointer;min-height:52px;display:flex;align-items:center;font-weight:700;list-style-position:inside}
+details p{margin:0 0 14px;color:var(--muted)}
+.foot__aka{opacity:.85}
+@media(min-width:640px){.cats{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:900px){.cats{grid-template-columns:repeat(5,1fr)}}

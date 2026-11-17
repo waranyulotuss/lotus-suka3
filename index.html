@@ -25,6 +25,7 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;700&display=swap">
@@ -37,6 +38,10 @@
   "url": "https://waranyulotuss.github.io/lotus-suka3/",
   "image": "https://waranyulotuss.github.io/lotus-suka3/assets/img/og.png",
   "inLanguage": "th",
+  "alternateName": [
+    "โลตัส สุขา 3",
+    "เทสโก้ โลตัส สุขาภิบาล 3"
+  ],
   "geo": {
     "@type": "GeoCoordinates",
     "latitude": 13.8067835,
@@ -53,7 +58,7 @@
     <a class="brand" href="./" aria-label="โลตัส สุขาภิบาล 3"><span class="brand__mark" aria-hidden="true"></span><span data-brand>สาขา สุขาภิบาล 3</span></a>
     <a class="langbtn" href="en/" hreflang="en" lang="en" data-setlang="en" aria-label="Switch to English" data-i18n-attr="aria-label:lang.switch.label"><span data-i18n="lang.switch">English</span></a>
   </div>
-  <nav class="top__nav" aria-label="เมนูหลัก" data-i18n-attr="aria-label:nav.label"><a href="#promos" data-i18n="nav.promos">โปรโมชัน</a><a href="#services" data-i18n="nav.services">บริการ</a><a href="#visit" data-i18n="nav.visit">เดินทาง</a><a href="#hours" data-i18n="nav.hours">เวลา/ติดต่อ</a><a href="#order" data-i18n="nav.order">สั่งออนไลน์</a></nav>
+  <nav class="top__nav" aria-label="เมนูหลัก" data-i18n-attr="aria-label:nav.label"><a href="#promos" data-i18n="nav.promos">โปรโมชัน</a><a href="#products" data-i18n="nav.products">สินค้า</a><a href="#services" data-i18n="nav.services">บริการ</a><a href="#visit" data-i18n="nav.visit">เดินทาง</a><a href="#hours" data-i18n="nav.hours">เวลา/ติดต่อ</a><a href="#order" data-i18n="nav.order">สั่งออนไลน์</a></nav>
 </header>
 
 <main id="main">
@@ -62,6 +67,7 @@
     <p class="hero__kicker" data-i18n="hero.kicker">ข้อมูลสาขา</p>
     <h1 data-brand-name>โลตัส สุขาภิบาล 3</h1>
     <p class="hero__tag" data-i18n="hero.tagline">เวลาเปิด-ปิด โปรโมชัน และเส้นทางมาสาขา ครบในหน้าเดียว</p>
+    <ul class="chips" id="highlights" aria-label="จุดเด่นของสาขา" data-i18n-attr="aria-label:hero.highlights" hidden></ul>
     <p class="status" id="status" role="status" aria-live="polite"><span class="status__dot" aria-hidden="true"></span><strong id="status-main" data-i18n="status.loading">กำลังตรวจสอบเวลา…</strong><span id="status-sub"></span></p>
     <div class="actions">
       <a class="btn btn--call" id="btn-call" href="#hours"><span aria-hidden="true">📞</span> <span data-i18n="btn.call">โทรเลย</span></a>
@@ -79,7 +85,13 @@
   <div class="grid" id="promo-list"></div>
 </div></section>
 
-<section id="services" class="sec sec--alt"><div class="wrap">
+<section id="products" class="sec sec--alt"><div class="wrap">
+  <h2 data-i18n="products.title">สินค้าในสาขา</h2>
+  <p data-i18n="products.intro">เลือกหมวดสินค้าเพื่อไปดูบนเว็บทางการของ Lotus ราคาและสินค้าคงเหลือแตกต่างกันตามสาขา เว็บนี้จึงไม่แสดงราคา</p>
+  <ul class="cats" id="cat-list"></ul>
+</div></section>
+
+<section id="services" class="sec"><div class="wrap">
   <h2 data-i18n="services.title">บริการและร้านค้าในสาขา</h2>
   <h3 data-i18n="services.services">บริการ</h3>
   <ul class="cards" id="service-list"></ul>
@@ -87,7 +99,7 @@
   <ul class="cards" id="shop-list"></ul>
 </div></section>
 
-<section id="visit" class="sec"><div class="wrap">
+<section id="visit" class="sec sec--alt"><div class="wrap">
   <h2 data-i18n="visit.title">การเดินทาง</h2>
   <div class="map"><iframe id="map" title="แผนที่ตำแหน่งสาขา" data-i18n-attr="title:visit.map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
   <p class="actions actions--inline"><a class="btn btn--primary" id="btn-nav2" href="#visit" target="_blank" rel="noopener"><span aria-hidden="true">📍</span> <span data-i18n="visit.openMaps">เปิดใน Google Maps</span></a>
@@ -95,7 +107,7 @@
   <dl class="facts" id="facts"></dl>
 </div></section>
 
-<section id="hours" class="sec sec--alt"><div class="wrap">
+<section id="hours" class="sec"><div class="wrap">
   <h2 data-i18n="hours.title">เวลาทำการและติดต่อ</h2>
   <p class="sample" id="hours-sample" hidden data-i18n="hours.sample">เวลาเปิด-ปิดนี้เป็นข้อมูลตัวอย่าง รอสาขายืนยัน</p>
   <div class="two">
@@ -114,9 +126,12 @@
   </div>
 </div></section>
 
-<section id="order" class="sec"><div class="wrap">
+<section id="order" class="sec sec--alt"><div class="wrap">
   <h2 data-i18n="order.title">สั่งซื้อออนไลน์</h2>
   <p data-i18n="order.text">สาขานี้ไม่มีระบบขายออนไลน์ของตัวเอง สั่งซื้อผ่านเว็บและแอปทางการของ Lotus</p>
+  <h3 data-i18n="order.benefitsTitle">ทำไมต้องสั่งผ่านแอป</h3>
+  <ul class="benefits"><li data-i18n="order.b1">สั่งสินค้าจากที่บ้านแล้วเลือกรับหรือให้ส่ง (ตามเงื่อนไขของแอป)</li><li data-i18n="order.b2">สะสมแต้มกับบัญชี My Lotus's</li></ul>
+  <p class="ph" data-i18n="order.b3">ฟีเจอร์และเงื่อนไขเป็นไปตามที่แอปทางการกำหนด</p>
   <p class="actions actions--inline">
     <a class="btn btn--primary" id="btn-web" href="https://www.lotuss.com/th" target="_blank" rel="noopener noreferrer"><span data-i18n="order.web">ไปเว็บทางการของ Lotus</span> <span aria-hidden="true">↗</span><span class="sr"> – <span data-i18n="order.newtab">เปิดในแท็บใหม่</span></span></a>
     <a class="btn btn--primary" id="btn-ios" href="#order" target="_blank" rel="noopener noreferrer" hidden><span aria-hidden="true">🍎</span> <span data-i18n="order.ios">ดาวน์โหลดบน App Store</span><span class="sr"> – <span data-i18n="order.newtab">เปิดในแท็บใหม่</span></span></a>
@@ -126,11 +141,31 @@
   <p class="ph" id="app-pending" data-i18n="order.appPending">[ลิงก์แอปทางการ Lotus กำลังรอสาขายืนยัน]</p>
   <p id="app-hint" hidden data-i18n="order.appHint">สั่งสะดวกกว่าผ่านแอป: โปรโมชัน ติดตามออเดอร์ และเลือกรับสินค้าที่สาขาหรือส่งถึงบ้าน</p>
 </div></section>
+<section id="faq" class="sec"><div class="wrap">
+  <h2 data-i18n="faq.title">คำถามที่พบบ่อย</h2>
+  <details><summary data-i18n="faq.q1">สั่งซื้อออนไลน์ได้ไหม</summary><p data-i18n="faq.a1">ได้ ผ่านเว็บและแอปทางการของ Lotus สาขานี้ไม่มีระบบขายออนไลน์ของตัวเอง</p></details>
+  <details><summary data-i18n="faq.q2">ราคาและสินค้าเหมือนเว็บทางการไหม</summary><p data-i18n="faq.a2">เว็บนี้ไม่แสดงราคาสินค้า เพราะราคาและสต็อกต่างกันตามสาขา ดูที่เว็บหรือแอปทางการ หรือโทรสอบถามสาขา</p></details>
+  <details><summary data-i18n="faq.q3">สาขาอยู่ที่ไหน มาอย่างไร</summary><p data-i18n="faq.a3">ดูแผนที่และจุดสังเกตในหัวข้อ การเดินทาง หรือกดปุ่ม นำทาง ด้านบน</p></details>
+  <details><summary data-i18n="faq.q4">เว็บนี้เป็นเว็บทางการของ Lotus ไหม</summary><p data-i18n="faq.a4">ไม่ใช่ เป็นหน้าข้อมูลของสาขา เว็บทางการคือ lotuss.com</p></details>
+  
+</div></section>
+
+<section id="share" class="sec sec--alt"><div class="wrap">
+  <h2 data-i18n="share.title">ชวนเพื่อนบ้านมาด้วย</h2>
+  <p data-i18n="share.text">ส่งต่อเวลาเปิด-ปิด โปรโมชัน และแผนที่ของสาขาให้คนในครอบครัวและเพื่อนบ้าน</p>
+  <p class="actions actions--inline" id="share-actions">
+    <a class="btn btn--primary" id="sh-line" href="#share" target="_blank" rel="noopener noreferrer"><span data-i18n="share.line">แชร์ทาง LINE</span></a>
+    <a class="btn btn--ghost" id="sh-fb" href="#share" target="_blank" rel="noopener noreferrer"><span data-i18n="share.fb">แชร์ Facebook</span></a>
+    <button class="btn btn--ghost" id="sh-native" type="button" hidden><span data-i18n="share.native">แชร์</span></button>
+    <button class="btn btn--ghost" id="sh-copy" type="button"><span data-i18n="share.copy">คัดลอกลิงก์</span></button>
+  </p>
+</div></section>
 </main>
 
 <footer class="foot"><div class="wrap">
   <p class="foot__disc"><strong data-i18n="footer.disclaimer">นี่คือหน้าข้อมูลของสาขา ไม่ใช่เว็บไซต์ทางการของ Lotus</strong></p>
   <p><a href="https://www.lotuss.com/th" target="_blank" rel="noopener noreferrer" data-i18n="footer.official">เว็บไซต์ทางการของ Lotus</a> · <a href="privacy.html" data-i18n="footer.privacy">นโยบายความเป็นส่วนตัว</a></p>
+  <p class="foot__aka" id="foot-aka" hidden></p>
   <p class="foot__addr"><span data-i18n="footer.address">ที่อยู่สาขา</span>: <span id="foot-addr">[ใส่ที่อยู่เต็มภาษาไทย พร้อมรหัสไปรษณีย์]</span></p>
 </div></footer>
 <script src="assets/js/main.js" defer></script>

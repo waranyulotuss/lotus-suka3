@@ -82,6 +82,33 @@
     });
   }
 
+  /* ---------- หมวดสินค้า (ลิงก์ไปเว็บทางการ ไม่คัดลอกรูป/ราคา) ---------- */
+  function renderCategories(data) {
+    var ul = $('#cat-list'); ul.textContent = '';
+    (data.items || []).forEach(function (x) {
+      var li = el('li'), a = el('a'); a.href = x.url || cfg.official.web[lang]; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      var ic = el('span', 'ico', x.icon || '•'); ic.setAttribute('aria-hidden', 'true');
+      a.appendChild(ic); a.appendChild(el('span', null, L(x.name))); a.appendChild(el('small', null, T['products.go'] + ' ↗'));
+      li.appendChild(a); ul.appendChild(li);
+    });
+  }
+  function renderExtras() {
+    var hl = (cfg.highlights && cfg.highlights[lang] || []).filter(function (x) { return !isPh(x); }), box = $('#highlights');
+    if (hl.length) { hl.forEach(function (x) { box.appendChild(el('li', null, x)); }); box.hidden = false; }
+    var names = (cfg.alt_names && cfg.alt_names[lang]) || [], aka = $('#foot-aka');
+    if (names.length) { aka.textContent = T['footer.aka'] + ': ' + names.join(' · '); aka.hidden = false; }
+    var url = location.origin + location.pathname.replace(/index\.html$/, ''), q = encodeURIComponent(url + '?utm_source=share&utm_medium=social'),
+        msg = fmt(T['share.msg'], { name: L(cfg.name) });
+    $('#sh-line').href = 'https://social-plugins.line.me/lineit/share?url=' + q + '&text=' + encodeURIComponent(msg);
+    $('#sh-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + q;
+    var nat = $('#sh-native'); if (navigator.share) { nat.hidden = false; nat.addEventListener('click', function () { navigator.share({ title: msg, url: url + '?utm_source=share&utm_medium=social' }).catch(function () {}); }); }
+    var cp = $('#sh-copy'); cp.addEventListener('click', function () {
+      var u = url + '?utm_source=share&utm_medium=social', done = function () { cp.firstChild.textContent = T['share.copied']; setTimeout(function () { cp.firstChild.textContent = T['share.copy']; }, 2000); };
+      if (navigator.clipboard) navigator.clipboard.writeText(u).then(done, function () {}); else { var i = document.createElement('input'); i.value = u; document.body.appendChild(i); i.select(); try { document.execCommand('copy'); done(); } catch (e) {} i.remove(); }
+    });
+    ['#sh-line', '#sh-fb', '#sh-native', '#sh-copy'].forEach(function (id, n) { var b = $(id); if (b) b.addEventListener('click', function () { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'event/share-' + ['line', 'fb', 'native', 'copy'][n] + '-' + lang, title: 'share', event: true }); }); });
+  }
+
   /* ---------- บริการ/ร้านค้า ---------- */
   function renderServices(data) {
     [['service', '#service-list'], ['shop', '#shop-list']].forEach(function (g) {
@@ -177,10 +204,10 @@
 
   /* ---------- เริ่มทำงาน ---------- */
   document.querySelectorAll('[data-setlang]').forEach(function (a) { a.addEventListener('click', function () { try { localStorage.setItem('lang', a.dataset.setlang); } catch (e) {} }); });
-  Promise.all([fetchJSON('i18n/' + lang + '.json'), fetchJSON('data/config.json'), fetchJSON('data/promotions.json'), fetchJSON('data/services.json')])
+  Promise.all([fetchJSON('i18n/' + lang + '.json'), fetchJSON('data/config.json'), fetchJSON('data/promotions.json'), fetchJSON('data/services.json'), fetchJSON('data/categories.json')])
     .then(function (r) {
       T = r[0]; cfg = r[1]; applyI18n();
-      renderContact(); initAnalytics(); renderHours(); renderPromos(r[2]); renderServices(r[3]); renderStatus();
+      renderContact(); initAnalytics(); renderHours(); renderPromos(r[2]); renderServices(r[3]); renderCategories(r[4]); renderExtras(); renderStatus();
       setInterval(renderStatus, 30000);
     })
     .catch(function (e) { console.warn('load failed', e); var m = $('#status-main'); if (m) m.textContent = ''; });

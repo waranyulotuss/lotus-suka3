@@ -37,9 +37,9 @@
       "en": "https://www.lotuss.com/en"
     },
     "app": "",
-    "app_ios": "",
+    "app_ios": "https://apps.apple.com/th/app/lotuss/id1540944956",
     "app_android": "",
-    "_note": "app_ios = ลิงก์ App Store, app_android = ลิงก์ Google Play (ขอลิงก์ทางการจากส่วนกลาง), app = ลิงก์เดียวใช้ทั้งสอง (ถ้ามี). เว้นว่างถ้ายังไม่มี"
+    "_note": "app_ios = ลิงก์ App Store, app_android = ลิงก์ Google Play (ขอลิงก์ทางการจากส่วนกลาง), app = ลิงก์เดียวใช้ทั้งสอง (ถ้ามี). เว้นว่างถ้ายังไม่มี | app_ios ใช้ลิงก์ App Store ของแอป Lotus's (ผู้พัฒนา CP Axtra) ที่พบจากการค้น ควรตรวจกับส่วนกลางอีกครั้ง; Google Play ยังไม่ได้ยืนยัน"
   },
   "images": {
     "hero": null,
@@ -135,5 +135,28 @@
     "_note": "goatcounter_code = ชื่อที่สมัครที่ goatcounter.com (เช่น lotus-suka3 จะได้ lotus-suka3.goatcounter.com). google_site_verification = ค่า content จาก meta tag ใน Search Console. เว้นว่าง = ปิด",
     "goatcounter_code": "lotus-suka3",
     "google_site_verification": ""
+  },
+  "alt_names": {
+    "th": [
+      "โลตัส สุขา 3",
+      "เทสโก้ โลตัส สุขาภิบาล 3"
+    ],
+    "en": [
+      "Lotus Suka 3",
+      "Tesco Lotus Sukhaphiban 3"
+    ]
+  },
+  "highlights": {
+    "th": [
+      "[ใส่จุดเด่นสาขา 1]",
+      "[ใส่จุดเด่นสาขา 2]",
+      "[ใส่จุดเด่นสาขา 3]"
+    ],
+    "en": [
+      "[Branch highlight 1]",
+      "[Branch highlight 2]",
+      "[Branch highlight 3]"
+    ],
+    "_note": "จุดเด่นจริงของสาขา 3 ข้อ (สั้น ๆ) ถ้ายังเป็น [ ] จะไม่แสดงบนเว็บ"
   }
 }

@@ -25,6 +25,7 @@
 <meta property="og:locale:alternate" content="th_TH">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;700&display=swap">
@@ -37,6 +38,10 @@
   "url": "https://waranyulotuss.github.io/lotus-suka3/en/",
   "image": "https://waranyulotuss.github.io/lotus-suka3/assets/img/og.png",
   "inLanguage": "en",
+  "alternateName": [
+    "Lotus Suka 3",
+    "Tesco Lotus Sukhaphiban 3"
+  ],
   "geo": {
     "@type": "GeoCoordinates",
     "latitude": 13.8067835,
@@ -53,7 +58,7 @@
     <a class="brand" href="./" aria-label="Lotus's Sukhaphiban 3"><span class="brand__mark" aria-hidden="true"></span><span data-brand>Sukhaphiban 3 Branch</span></a>
     <a class="langbtn" href="../" hreflang="th" lang="th" data-setlang="th" aria-label="เปลี่ยนเป็นภาษาไทย" data-i18n-attr="aria-label:lang.switch.label"><span data-i18n="lang.switch">ไทย</span></a>
   </div>
-  <nav class="top__nav" aria-label="Main menu" data-i18n-attr="aria-label:nav.label"><a href="#promos" data-i18n="nav.promos">Promotions</a><a href="#services" data-i18n="nav.services">Services</a><a href="#visit" data-i18n="nav.visit">Getting here</a><a href="#hours" data-i18n="nav.hours">Hours &amp; contact</a><a href="#order" data-i18n="nav.order">Order online</a></nav>
+  <nav class="top__nav" aria-label="Main menu" data-i18n-attr="aria-label:nav.label"><a href="#promos" data-i18n="nav.promos">Promotions</a><a href="#products" data-i18n="nav.products">Products</a><a href="#services" data-i18n="nav.services">Services</a><a href="#visit" data-i18n="nav.visit">Getting here</a><a href="#hours" data-i18n="nav.hours">Hours &amp; contact</a><a href="#order" data-i18n="nav.order">Order online</a></nav>
 </header>
 
 <main id="main">
@@ -62,6 +67,7 @@
     <p class="hero__kicker" data-i18n="hero.kicker">Branch information</p>
     <h1 data-brand-name>Lotus's Sukhaphiban 3</h1>
     <p class="hero__tag" data-i18n="hero.tagline">Opening hours, promotions and directions, all on one page</p>
+    <ul class="chips" id="highlights" aria-label="Branch highlights" data-i18n-attr="aria-label:hero.highlights" hidden></ul>
     <p class="status" id="status" role="status" aria-live="polite"><span class="status__dot" aria-hidden="true"></span><strong id="status-main" data-i18n="status.loading">Checking opening hours…</strong><span id="status-sub"></span></p>
     <div class="actions">
       <a class="btn btn--call" id="btn-call" href="#hours"><span aria-hidden="true">📞</span> <span data-i18n="btn.call">Call now</span></a>
@@ -79,7 +85,13 @@
   <div class="grid" id="promo-list"></div>
 </div></section>
 
-<section id="services" class="sec sec--alt"><div class="wrap">
+<section id="products" class="sec sec--alt"><div class="wrap">
+  <h2 data-i18n="products.title">Shop by category</h2>
+  <p data-i18n="products.intro">Pick a category to browse on Lotus's official website. Prices and stock vary by branch, so this page does not show prices.</p>
+  <ul class="cats" id="cat-list"></ul>
+</div></section>
+
+<section id="services" class="sec"><div class="wrap">
   <h2 data-i18n="services.title">Services &amp; shops</h2>
   <h3 data-i18n="services.services">Services</h3>
   <ul class="cards" id="service-list"></ul>
@@ -87,7 +99,7 @@
   <ul class="cards" id="shop-list"></ul>
 </div></section>
 
-<section id="visit" class="sec"><div class="wrap">
+<section id="visit" class="sec sec--alt"><div class="wrap">
   <h2 data-i18n="visit.title">Getting here</h2>
   <div class="map"><iframe id="map" title="Map showing the branch location" data-i18n-attr="title:visit.map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
   <p class="actions actions--inline"><a class="btn btn--primary" id="btn-nav2" href="#visit" target="_blank" rel="noopener"><span aria-hidden="true">📍</span> <span data-i18n="visit.openMaps">Open in Google Maps</span></a>
@@ -95,7 +107,7 @@
   <dl class="facts" id="facts"></dl>
 </div></section>
 
-<section id="hours" class="sec sec--alt"><div class="wrap">
+<section id="hours" class="sec"><div class="wrap">
   <h2 data-i18n="hours.title">Hours &amp; contact</h2>
   <p class="sample" id="hours-sample" hidden data-i18n="hours.sample">These opening hours are sample data, pending branch confirmation.</p>
   <div class="two">
@@ -114,9 +126,12 @@
   </div>
 </div></section>
 
-<section id="order" class="sec"><div class="wrap">
+<section id="order" class="sec sec--alt"><div class="wrap">
   <h2 data-i18n="order.title">Order online</h2>
   <p data-i18n="order.text">This branch does not run its own online store. Order through Lotus's official website and app.</p>
+  <h3 data-i18n="order.benefitsTitle">Why order in the app</h3>
+  <ul class="benefits"><li data-i18n="order.b1">Order from home, then choose pickup or delivery (subject to the app's terms)</li><li data-i18n="order.b2">Collect points with your My Lotus's account</li></ul>
+  <p class="ph" data-i18n="order.b3">Features and terms are set by the official app.</p>
   <p class="actions actions--inline">
     <a class="btn btn--primary" id="btn-web" href="https://www.lotuss.com/en" target="_blank" rel="noopener noreferrer"><span data-i18n="order.web">Lotus official website</span> <span aria-hidden="true">↗</span><span class="sr"> – <span data-i18n="order.newtab">Opens in a new tab</span></span></a>
     <a class="btn btn--primary" id="btn-ios" href="#order" target="_blank" rel="noopener noreferrer" hidden><span aria-hidden="true">🍎</span> <span data-i18n="order.ios">Download on the App Store</span><span class="sr"> – <span data-i18n="order.newtab">Opens in a new tab</span></span></a>
@@ -126,11 +141,31 @@
   <p class="ph" id="app-pending" data-i18n="order.appPending">[Official Lotus app link pending branch confirmation]</p>
   <p id="app-hint" hidden data-i18n="order.appHint">Easier in the app: promotions, order tracking, and choose branch pickup or home delivery.</p>
 </div></section>
+<section id="faq" class="sec"><div class="wrap">
+  <h2 data-i18n="faq.title">Frequently asked questions</h2>
+  <details><summary data-i18n="faq.q1">Can I order online?</summary><p data-i18n="faq.a1">Yes, through Lotus's official website and app. This branch does not run its own online store.</p></details>
+  <details><summary data-i18n="faq.q2">Are prices and products the same as the official site?</summary><p data-i18n="faq.a2">This page shows no prices because prices and stock vary by branch. Check the official website or app, or call the branch.</p></details>
+  <details><summary data-i18n="faq.q3">Where is the branch and how do I get there?</summary><p data-i18n="faq.a3">See the map and landmarks under Getting here, or tap Directions above.</p></details>
+  <details><summary data-i18n="faq.q4">Is this the official Lotus website?</summary><p data-i18n="faq.a4">No. This is a branch information page. The official site is lotuss.com.</p></details>
+  
+</div></section>
+
+<section id="share" class="sec sec--alt"><div class="wrap">
+  <h2 data-i18n="share.title">Tell your neighbours</h2>
+  <p data-i18n="share.text">Share the branch's opening hours, promotions and map with family and friends.</p>
+  <p class="actions actions--inline" id="share-actions">
+    <a class="btn btn--primary" id="sh-line" href="#share" target="_blank" rel="noopener noreferrer"><span data-i18n="share.line">Share on LINE</span></a>
+    <a class="btn btn--ghost" id="sh-fb" href="#share" target="_blank" rel="noopener noreferrer"><span data-i18n="share.fb">Share on Facebook</span></a>
+    <button class="btn btn--ghost" id="sh-native" type="button" hidden><span data-i18n="share.native">Share</span></button>
+    <button class="btn btn--ghost" id="sh-copy" type="button"><span data-i18n="share.copy">Copy link</span></button>
+  </p>
+</div></section>
 </main>
 
 <footer class="foot"><div class="wrap">
   <p class="foot__disc"><strong data-i18n="footer.disclaimer">This is a branch information page, not the official Lotus website.</strong></p>
   <p><a href="https://www.lotuss.com/en" target="_blank" rel="noopener noreferrer" data-i18n="footer.official">Official Lotus website</a> · <a href="privacy.html" data-i18n="footer.privacy">Privacy policy</a></p>
+  <p class="foot__aka" id="foot-aka" hidden></p>
   <p class="foot__addr"><span data-i18n="footer.address">Branch address</span>: <span id="foot-addr">[Full address in English with postal code]</span></p>
 </div></footer>
 <script src="../assets/js/main.js" defer></script>

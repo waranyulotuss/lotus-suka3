@@ -26,6 +26,7 @@ function jsonLd(lang) {
     image: `${site}/${cfg.images.og}`,
     inLanguage: lang,
   };
+  if ((cfg.alt_names || {})[lang]) o.alternateName = cfg.alt_names[lang];
   if (cfg.phone.e164) o.telephone = cfg.phone.e164;
   if (!isPh(cfg.address[lang])) o.address = { '@type': 'PostalAddress', streetAddress: cfg.address[lang], addressCountry: 'TH' };
   if (cfg.geo.lat != null && cfg.geo.lng != null) o.geo = { '@type': 'GeoCoordinates', latitude: cfg.geo.lat, longitude: cfg.geo.lng };
@@ -66,6 +67,7 @@ ${noindex ? '<meta name="robots" content="noindex">' : ''}
 <meta property="og:locale:alternate" content="${lang === 'th' ? 'en_US' : 'th_TH'}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="${base}assets/img/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="${base}manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;700&display=swap">
@@ -79,7 +81,7 @@ function indexPage(lang) {
   const base = lang === 'th' ? '' : '../';
   const other = lang === 'th' ? 'en/' : '../';
   const otherLang = lang === 'th' ? 'en' : 'th';
-  const nav = [['promos', 'promos'], ['services', 'services'], ['visit', 'visit'], ['hours', 'hours'], ['order', 'order']]
+  const nav = [['promos', 'promos'], ['products', 'products'], ['services', 'services'], ['visit', 'visit'], ['hours', 'hours'], ['order', 'order']]
     .map(([id, key]) => `<a href="#${id}" data-i18n="nav.${key}">${esc(t['nav.' + key])}</a>`).join('');
   const redirect = lang === 'th'
     ? `<script>try{if(localStorage.getItem('lang')==='en'&&!/[?&]nolang/.test(location.search)){location.replace('en/'+location.search+location.hash)}}catch(e){}</script>`
@@ -106,6 +108,7 @@ ${redirect}
     <p class="hero__kicker" data-i18n="hero.kicker">${esc(t['hero.kicker'])}</p>
     <h1 data-brand-name>${esc(cfg.name[lang])}</h1>
     <p class="hero__tag" data-i18n="hero.tagline">${esc(t['hero.tagline'])}</p>
+    <ul class="chips" id="highlights" aria-label="${esc(t['hero.highlights'])}" data-i18n-attr="aria-label:hero.highlights" hidden></ul>
     <p class="status" id="status" role="status" aria-live="polite"><span class="status__dot" aria-hidden="true"></span><strong id="status-main" data-i18n="status.loading">${esc(t['status.loading'])}</strong><span id="status-sub"></span></p>
     <div class="actions">
       <a class="btn btn--call" id="btn-call" href="#hours"><span aria-hidden="true">📞</span> <span data-i18n="btn.call">${esc(t['btn.call'])}</span></a>
@@ -123,7 +126,13 @@ ${redirect}
   <div class="grid" id="promo-list"></div>
 </div></section>
 
-<section id="services" class="sec sec--alt"><div class="wrap">
+<section id="products" class="sec sec--alt"><div class="wrap">
+  ${k(t, 'products.title', 'h2')}
+  <p data-i18n="products.intro">${esc(t['products.intro'])}</p>
+  <ul class="cats" id="cat-list"></ul>
+</div></section>
+
+<section id="services" class="sec"><div class="wrap">
   ${k(t, 'services.title', 'h2')}
   <h3 data-i18n="services.services">${esc(t['services.services'])}</h3>
   <ul class="cards" id="service-list"></ul>
@@ -131,7 +140,7 @@ ${redirect}
   <ul class="cards" id="shop-list"></ul>
 </div></section>
 
-<section id="visit" class="sec"><div class="wrap">
+<section id="visit" class="sec sec--alt"><div class="wrap">
   ${k(t, 'visit.title', 'h2')}
   <div class="map"><iframe id="map" title="${esc(t['visit.map'])}" data-i18n-attr="title:visit.map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
   <p class="actions actions--inline"><a class="btn btn--primary" id="btn-nav2" href="#visit" target="_blank" rel="noopener"><span aria-hidden="true">📍</span> <span data-i18n="visit.openMaps">${esc(t['visit.openMaps'])}</span></a>
@@ -139,7 +148,7 @@ ${redirect}
   <dl class="facts" id="facts"></dl>
 </div></section>
 
-<section id="hours" class="sec sec--alt"><div class="wrap">
+<section id="hours" class="sec"><div class="wrap">
   ${k(t, 'hours.title', 'h2')}
   <p class="sample" id="hours-sample" hidden data-i18n="hours.sample">${esc(t['hours.sample'])}</p>
   <div class="two">
@@ -158,9 +167,12 @@ ${redirect}
   </div>
 </div></section>
 
-<section id="order" class="sec"><div class="wrap">
+<section id="order" class="sec sec--alt"><div class="wrap">
   ${k(t, 'order.title', 'h2')}
   <p data-i18n="order.text">${esc(t['order.text'])}</p>
+  <h3 data-i18n="order.benefitsTitle">${esc(t['order.benefitsTitle'])}</h3>
+  <ul class="benefits"><li data-i18n="order.b1">${esc(t['order.b1'])}</li><li data-i18n="order.b2">${esc(t['order.b2'])}</li></ul>
+  <p class="ph" data-i18n="order.b3">${esc(t['order.b3'])}</p>
   <p class="actions actions--inline">
     <a class="btn btn--primary" id="btn-web" href="${cfg.official.web[lang]}" target="_blank" rel="noopener noreferrer"><span data-i18n="order.web">${esc(t['order.web'])}</span> <span aria-hidden="true">↗</span><span class="sr"> – <span data-i18n="order.newtab">${esc(t['order.newtab'])}</span></span></a>
     <a class="btn btn--primary" id="btn-ios" href="#order" target="_blank" rel="noopener noreferrer" hidden><span aria-hidden="true">🍎</span> <span data-i18n="order.ios">${esc(t['order.ios'])}</span><span class="sr"> – <span data-i18n="order.newtab">${esc(t['order.newtab'])}</span></span></a>
@@ -169,6 +181,25 @@ ${redirect}
   </p>
   <p class="ph" id="app-pending" data-i18n="order.appPending">${esc(t['order.appPending'])}</p>
   <p id="app-hint" hidden data-i18n="order.appHint">${esc(t['order.appHint'])}</p>
+</div></section>
+<section id="faq" class="sec"><div class="wrap">
+  ${k(t, 'faq.title', 'h2')}
+  <details><summary data-i18n="faq.q1">${esc(t['faq.q1'])}</summary><p data-i18n="faq.a1">${esc(t['faq.a1'])}</p></details>
+  <details><summary data-i18n="faq.q2">${esc(t['faq.q2'])}</summary><p data-i18n="faq.a2">${esc(t['faq.a2'])}</p></details>
+  <details><summary data-i18n="faq.q3">${esc(t['faq.q3'])}</summary><p data-i18n="faq.a3">${esc(t['faq.a3'])}</p></details>
+  <details><summary data-i18n="faq.q4">${esc(t['faq.q4'])}</summary><p data-i18n="faq.a4">${esc(t['faq.a4'])}</p></details>
+  
+</div></section>
+
+<section id="share" class="sec sec--alt"><div class="wrap">
+  ${k(t, 'share.title', 'h2')}
+  <p data-i18n="share.text">${esc(t['share.text'])}</p>
+  <p class="actions actions--inline" id="share-actions">
+    <a class="btn btn--primary" id="sh-line" href="#share" target="_blank" rel="noopener noreferrer"><span data-i18n="share.line">${esc(t['share.line'])}</span></a>
+    <a class="btn btn--ghost" id="sh-fb" href="#share" target="_blank" rel="noopener noreferrer"><span data-i18n="share.fb">${esc(t['share.fb'])}</span></a>
+    <button class="btn btn--ghost" id="sh-native" type="button" hidden><span data-i18n="share.native">${esc(t['share.native'])}</span></button>
+    <button class="btn btn--ghost" id="sh-copy" type="button"><span data-i18n="share.copy">${esc(t['share.copy'])}</span></button>
+  </p>
 </div></section>
 </main>
 
@@ -183,6 +214,7 @@ function footer(lang, t, base) {
   return `<footer class="foot"><div class="wrap">
   <p class="foot__disc"><strong data-i18n="footer.disclaimer">${esc(t['footer.disclaimer'])}</strong></p>
   <p><a href="${cfg.official.web[lang]}" target="_blank" rel="noopener noreferrer" data-i18n="footer.official">${esc(t['footer.official'])}</a> · <a href="${base ? '' : ''}privacy.html" data-i18n="footer.privacy">${esc(t['footer.privacy'])}</a></p>
+  <p class="foot__aka" id="foot-aka" hidden></p>
   <p class="foot__addr"><span data-i18n="footer.address">${esc(t['footer.address'])}</span>: <span id="foot-addr">${esc(cfg.address[lang])}</span></p>
 </div></footer>`;
 }
@@ -233,6 +265,7 @@ wr('en/index.html', indexPage('en'));
 wr('privacy.html', privacyPage('th'));
 wr('en/privacy.html', privacyPage('en'));
 wr('404.html', notFound());
+wr('manifest.webmanifest', JSON.stringify({ name: cfg.name.th, short_name: cfg.branch_label.th, start_url: './', scope: './', display: 'standalone', background_color: '#ffffff', theme_color: '#306FC7', lang: 'th', icons: [{ src: 'assets/img/favicon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' }] }, null, 2) + '\n');
 
 const today = new Date().toISOString().slice(0, 10);
 const urls = [['', 'index'], ['privacy.html', 'privacy']].flatMap(([p]) => ['th', 'en'].map((l) => {
