@@ -2,12 +2,12 @@
   "_note": "แก้ไฟล์นี้ที่เดียว: ข้อความที่ขึ้นต้นด้วย [ ] คือข้อมูลตัวอย่างที่รอเจ้าของสาขา / Values in [ ] are placeholders.",
   "site_url": "https://waranyulotuss.github.io/lotus-suka3",
   "name": {
-    "th": "โลตัส สุขา 3",
-    "en": "Lotus Suka 3"
+    "th": "โลตัส สุขาภิบาล 3",
+    "en": "Lotus's Sukhaphiban 3"
   },
   "branch_label": {
-    "th": "สาขา สุขา 3",
-    "en": "Suka 3 Branch"
+    "th": "สาขา สุขาภิบาล 3",
+    "en": "Sukhaphiban 3 Branch"
   },
   "address": {
     "th": "[ใส่ที่อยู่เต็มภาษาไทย พร้อมรหัสไปรษณีย์]",
@@ -18,12 +18,12 @@
     "e164": ""
   },
   "geo": {
-    "lat": null,
-    "lng": null
+    "lat": 13.8067835,
+    "lng": 100.7250887
   },
   "maps": {
-    "link": "",
-    "embed_query": "โลตัส สุขา 3",
+    "link": "https://maps.app.goo.gl/BcQLVT1cRvaJ2qwW9",
+    "embed_query": "โลตัส สุขาภิบาล 3",
     "review_link": ""
   },
   "social": {
