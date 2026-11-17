@@ -1,0 +1,17 @@
+{
+  "_note": "โปรโมชันทั้งหมด ใส่เฉพาะที่ได้รับจากสาขา ต้องมี end (YYYY-MM-DD) การ์ดจะซ่อนเองเมื่อพ้นวันสิ้นสุด. level: hot = ด่วน (แดง), normal = ปกติ",
+  "items": [
+    { "id": "p1", "level": "hot",    "start": "2026-11-10", "end": "2026-11-23",
+      "title": { "th": "[ตัวอย่าง] โปรโมชันด่วนประจำสัปดาห์", "en": "[Sample] Weekly flash deal" },
+      "desc":  { "th": "[ใส่รายละเอียดโปรโมชันจากสาขา ห้ามเดาราคา]", "en": "[Add promotion details from the branch. Do not guess prices]" } },
+    { "id": "p2", "level": "normal", "start": "2026-11-10", "end": "2026-11-30",
+      "title": { "th": "[ตัวอย่าง] โปรโมชันสินค้าสด", "en": "[Sample] Fresh food offer" },
+      "desc":  { "th": "[ใส่รายละเอียดโปรโมชัน]", "en": "[Add promotion details]" } },
+    { "id": "p3", "level": "normal", "start": "2026-11-10", "end": "2026-11-30",
+      "title": { "th": "[ตัวอย่าง] โปรโมชันของใช้ในบ้าน", "en": "[Sample] Household offer" },
+      "desc":  { "th": "[ใส่รายละเอียดโปรโมชัน]", "en": "[Add promotion details]" } },
+    { "id": "p4", "level": "normal", "start": "2026-11-10", "end": "2026-12-07",
+      "title": { "th": "[ตัวอย่าง] โปรโมชันร้านค้าในศูนย์", "en": "[Sample] In-mall shop offer" },
+      "desc":  { "th": "[ใส่รายละเอียดโปรโมชัน]", "en": "[Add promotion details]" } }
+  ]
+}

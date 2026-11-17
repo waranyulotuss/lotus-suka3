@@ -1,0 +1,59 @@
+{
+  "_note": "แก้ไฟล์นี้ที่เดียว: ข้อความที่ขึ้นต้นด้วย [ ] คือข้อมูลตัวอย่างที่รอเจ้าของสาขา / Values in [ ] are placeholders.",
+  "site_url": "https://OWNER.github.io/REPO",
+  "name": { "th": "โลตัส สุขา 3", "en": "Lotus Suka 3" },
+  "branch_label": { "th": "สาขา สุขา 3", "en": "Suka 3 Branch" },
+  "address": {
+    "th": "[ใส่ที่อยู่เต็มภาษาไทย พร้อมรหัสไปรษณีย์]",
+    "en": "[Full address in English with postal code]"
+  },
+  "phone": { "display": "[ใส่เบอร์โทร]", "e164": "" },
+  "geo": { "lat": null, "lng": null },
+  "maps": {
+    "link": "",
+    "embed_query": "โลตัส สุขา 3",
+    "review_link": ""
+  },
+  "social": { "line": "", "facebook": "", "google_business_profile": "" },
+  "official": {
+    "web": { "th": "https://www.lotuss.com/th", "en": "https://www.lotuss.com/en" },
+    "app": ""
+  },
+  "images": {
+    "hero": null,
+    "og": "assets/img/og.png"
+  },
+  "directions": {
+    "landmarks": { "th": "[ใส่จุดสังเกต เช่น ใกล้สี่แยก/ปั๊ม/วัด]", "en": "[Add landmarks, e.g. near the junction / station]" },
+    "parking": { "th": "[ใส่ข้อมูลที่จอดรถ เช่น จำนวนที่จอด ทางเข้า]", "en": "[Add parking details: capacity, entrance]" },
+    "car": { "th": "[ใส่วิธีมาด้วยรถส่วนตัว]", "en": "[How to get here by car]" },
+    "transit": { "th": "[ใส่วิธีมาด้วยขนส่งสาธารณะ เช่น สายรถเมล์/สองแถว]", "en": "[How to get here by public transport]" }
+  },
+  "hours": {
+    "timezone": "Asia/Bangkok",
+    "is_sample": true,
+    "weekly": {
+      "mon": [{ "open": "08:00", "close": "22:00" }],
+      "tue": [{ "open": "08:00", "close": "22:00" }],
+      "wed": [{ "open": "08:00", "close": "22:00" }],
+      "thu": [{ "open": "08:00", "close": "22:00" }],
+      "fri": [{ "open": "08:00", "close": "22:00" }],
+      "sat": [{ "open": "08:00", "close": "22:00" }],
+      "sun": [{ "open": "08:00", "close": "22:00" }]
+    },
+    "closures": [
+      {
+        "date": "2026-12-31",
+        "closed": false,
+        "open": "08:00",
+        "close": "02:00",
+        "label": { "th": "[ตัวอย่าง] ส่งท้ายปีเก่า เปิดข้ามคืน", "en": "[Sample] New Year's Eve, open past midnight" }
+      },
+      {
+        "date": "2027-04-13",
+        "closed": true,
+        "label": { "th": "[ตัวอย่าง] ปิดวันหยุดพิเศษ", "en": "[Sample] Special holiday closure" }
+      }
+    ]
+  }
+}

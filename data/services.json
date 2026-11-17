@@ -1,0 +1,15 @@
+{
+  "_note": "kind: service = บริการ, shop = ร้านค้าในศูนย์. icon เป็นอีโมจิ. hours เว้นว่างได้",
+  "items": [
+    { "id": "parking",  "kind": "service", "icon": "🅿️", "name": { "th": "ที่จอดรถ", "en": "Parking" },
+      "desc": { "th": "[ใส่รายละเอียดที่จอดรถ]", "en": "[Add parking details]" } },
+    { "id": "pickup",   "kind": "service", "icon": "📦", "name": { "th": "จุดรับสินค้า", "en": "Pickup point" },
+      "desc": { "th": "[ใส่รายละเอียดจุดรับสินค้า]", "en": "[Add pickup details]" } },
+    { "id": "delivery", "kind": "service", "icon": "🛵", "name": { "th": "ส่งถึงบ้าน", "en": "Home delivery" },
+      "desc": { "th": "[ใส่พื้นที่และเงื่อนไขการส่ง]", "en": "[Add delivery area and conditions]" } },
+    { "id": "shop1",    "kind": "shop",    "icon": "🏪", "name": { "th": "[ชื่อร้านค้าในศูนย์ 1]", "en": "[In-mall shop 1]" },
+      "desc": { "th": "[ประเภทร้าน]", "en": "[Shop type]" }, "hours": { "th": "[เวลาเปิด-ปิดร้าน]", "en": "[Shop hours]" } },
+    { "id": "shop2",    "kind": "shop",    "icon": "🏪", "name": { "th": "[ชื่อร้านค้าในศูนย์ 2]", "en": "[In-mall shop 2]" },
+      "desc": { "th": "[ประเภทร้าน]", "en": "[Shop type]" }, "hours": { "th": "[เวลาเปิด-ปิดร้าน]", "en": "[Shop hours]" } }
+  ]
+}

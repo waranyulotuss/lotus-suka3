@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://OWNER.github.io/REPO/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="th" href="https://OWNER.github.io/REPO/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://OWNER.github.io/REPO/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://OWNER.github.io/REPO/"/>
+  </url>
+  <url>
+    <loc>https://OWNER.github.io/REPO/en/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="th" href="https://OWNER.github.io/REPO/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://OWNER.github.io/REPO/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://OWNER.github.io/REPO/"/>
+  </url>
+  <url>
+    <loc>https://OWNER.github.io/REPO/privacy.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="th" href="https://OWNER.github.io/REPO/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://OWNER.github.io/REPO/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://OWNER.github.io/REPO/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://OWNER.github.io/REPO/en/privacy.html</loc>
+    <lastmod>2026-11-17</lastmod>
+    <xhtml:link rel="alternate" hreflang="th" href="https://OWNER.github.io/REPO/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://OWNER.github.io/REPO/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://OWNER.github.io/REPO/privacy.html"/>
+  </url>
+</urlset>
