@@ -10,12 +10,12 @@
     "en": "Sukhaphiban 3 Branch"
   },
   "address": {
-    "th": "[ใส่ที่อยู่เต็มภาษาไทย พร้อมรหัสไปรษณีย์]",
-    "en": "[Full address in English with postal code]"
+    "th": "101, 101/1 ถนนรามคำแหง แขวงมีนบุรี เขตมีนบุรี กรุงเทพฯ 10510",
+    "en": "101, 101/1 Ramkhamhaeng Road, Min Buri, Min Buri, Bangkok 10510"
   },
   "phone": {
-    "display": "[ใส่เบอร์โทร]",
-    "e164": ""
+    "display": "02-916-5500",
+    "e164": "+6629165500"
   },
   "geo": {
     "lat": 13.8067835,
@@ -158,5 +158,6 @@
       "[Branch highlight 3]"
     ],
     "_note": "จุดเด่นจริงของสาขา 3 ข้อ (สั้น ๆ) ถ้ายังเป็น [ ] จะไม่แสดงบนเว็บ"
-  }
+  },
+  "_source_note": "ที่อยู่/เบอร์/เวลา รวบรวมจากข้อมูลสาธารณะ (Wongnai, Sale Here, Yellow Pages) ณ 2026-11-17 รอสาขายืนยัน; พิกัดและชื่อมาจาก Google Maps ของเจ้าของ. เมื่อยืนยันแล้วให้ตั้ง hours.is_sample=false"
 }
