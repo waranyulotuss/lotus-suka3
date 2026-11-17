@@ -70,7 +70,7 @@ ${noindex ? '<meta name="robots" content="noindex">' : ''}
 <link rel="manifest" href="${base}manifest.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="${base}assets/css/style.css">`;
 }
 
@@ -82,7 +82,8 @@ function indexPage(lang) {
   const other = lang === 'th' ? 'en/' : '../';
   const otherLang = lang === 'th' ? 'en' : 'th';
   const nav = [['promos', 'promos'], ['products', 'products'], ['services', 'services'], ['visit', 'visit'], ['hours', 'hours'], ['order', 'order']]
-    .map(([id, key]) => `<a href="#${id}" data-i18n="nav.${key}">${esc(t['nav.' + key])}</a>`).join('');
+    .map(([id, key]) => `<a href="#${id}" data-i18n="nav.${key}">${esc(t['nav.' + key])}</a>`).join('')
+    + `<a href="shops.html" data-i18n="nav.shops">${esc(t['nav.shops'])}</a>`;
   const redirect = lang === 'th'
     ? `<script>try{if(localStorage.getItem('lang')==='en'&&!/[?&]nolang/.test(location.search)){location.replace('en/'+location.search+location.hash)}}catch(e){}</script>`
     : '';
@@ -138,6 +139,7 @@ ${redirect}
   <ul class="cards" id="service-list"></ul>
   <h3 data-i18n="services.shops">${esc(t['services.shops'])}</h3>
   <ul class="cards" id="shop-list"></ul>
+  <p class="actions actions--inline"><a class="btn btn--primary" href="shops.html" data-i18n="services.allShops">${esc(t['services.allShops'])}</a></p>
 </div></section>
 
 <section id="visit" class="sec sec--alt"><div class="wrap">
@@ -236,6 +238,61 @@ ${footer(lang, t, base).replace('privacy.html', 'privacy.html')}
 `;
 }
 
+const shopsData = rd('data/shops.json');
+const hasRealShops = (shopsData.items || []).some((x) => !x.is_sample);
+
+function shopsPage(lang) {
+  const t = I18N[lang];
+  const base = lang === 'th' ? '' : '../';
+  const other = lang === 'th' ? 'en/shops.html' : '../shops.html';
+  const otherLang = lang === 'th' ? 'en' : 'th';
+  const nav = `<a href="./" data-i18n="shops.back">${esc(t['shops.back'])}</a>`;
+  return `${head(lang, t, { title: t['shops.meta.title'], desc: t['shops.meta.description'], path: 'shops.html', noindex: !hasRealShops, base })}
+</head>
+<body class="shops">
+<a class="skip" href="#main" data-i18n="skip">${esc(t.skip)}</a>
+<header class="top">
+  <div class="top__row">
+    <a class="brand" href="./" aria-label="${esc(cfg.name[lang])}"><span class="brand__mark" aria-hidden="true"></span><span>${esc(cfg.branch_label[lang])}</span></a>
+    <a class="langbtn" href="${other}" hreflang="${otherLang}" lang="${otherLang}" data-setlang="${otherLang}" aria-label="${esc(t['lang.switch.label'])}"><span data-i18n="lang.switch">${esc(t['lang.switch'])}</span></a>
+  </div>
+  <nav class="top__nav" aria-label="${esc(t['nav.label'])}">${nav}</nav>
+</header>
+<main id="main">
+<section class="hero hero--shops"><div class="wrap hero__in">
+  <p class="hero__kicker" data-i18n="shops.kicker">${esc(t['shops.kicker'])}</p>
+  <h1 data-i18n="shops.h1">${esc(t['shops.h1'])}</h1>
+  <p class="hero__tag" data-i18n="shops.tagline">${esc(t['shops.tagline'])}</p>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <p class="sample" id="shops-sample" hidden data-i18n="shops.sampleNote">${esc(t['shops.sampleNote'])}</p>
+  <div class="shopbar">
+    <div class="field">
+      <label for="shop-q" data-i18n="shops.search">${esc(t['shops.search'])}</label>
+      <input id="shop-q" type="search" autocomplete="off" placeholder="${esc(t['shops.search.ph'])}" data-i18n-attr="placeholder:shops.search.ph">
+    </div>
+    <div class="pills" id="shop-filter" role="group" aria-label="${esc(t['shops.filter'])}" data-i18n-attr="aria-label:shops.filter"></div>
+  </div>
+  <p class="count" id="shop-count" role="status" aria-live="polite"></p>
+  <ul class="shopgrid" id="shop-grid"></ul>
+  <p class="empty" id="shop-none" hidden data-i18n="shops.none">${esc(t['shops.none'])}</p>
+</div></section>
+
+<section class="sec sec--alt"><div class="wrap">
+  ${k(t, 'shops.join.title', 'h2')}
+  <p data-i18n="shops.join.text">${esc(t['shops.join.text'])}</p>
+  <p class="actions actions--inline"><a class="btn btn--call" id="btn-call" href="tel:${esc(cfg.phone.e164)}"><span aria-hidden="true">📞</span> <span data-i18n="shops.join.btn">${esc(t['shops.join.btn'])}</span> ${esc(cfg.phone.display)}</a>
+  <a class="btn btn--ghost" href="./" data-i18n="shops.back">${esc(t['shops.back'])}</a></p>
+</div></section>
+</main>
+${footer(lang, t, base)}
+<script src="${base}assets/js/shops.js" defer></script>
+</body>
+</html>
+`;
+}
+
 function notFound() {
   // 404 ใช้ path แบบ absolute จาก repo root ไม่ได้ (project site) จึงใช้ base ผ่านสคริปต์
   const t = I18N.th, e = I18N.en;
@@ -264,11 +321,13 @@ wr('index.html', indexPage('th'));
 wr('en/index.html', indexPage('en'));
 wr('privacy.html', privacyPage('th'));
 wr('en/privacy.html', privacyPage('en'));
+wr('shops.html', shopsPage('th'));
+wr('en/shops.html', shopsPage('en'));
 wr('404.html', notFound());
 wr('manifest.webmanifest', JSON.stringify({ name: cfg.name.th, short_name: cfg.branch_label.th, start_url: './', scope: './', display: 'standalone', background_color: '#ffffff', theme_color: '#306FC7', lang: 'th', icons: [{ src: 'assets/img/favicon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' }] }, null, 2) + '\n');
 
 const today = new Date().toISOString().slice(0, 10);
-const urls = [['', 'index'], ['privacy.html', 'privacy']].flatMap(([p]) => ['th', 'en'].map((l) => {
+const urls = [['', 'index'], ['privacy.html', 'privacy']].concat(hasRealShops ? [['shops.html', 'shops']] : []).flatMap(([p]) => ['th', 'en'].map((l) => {
   const alts = ['th', 'en'].map((x) => `    <xhtml:link rel="alternate" hreflang="${x}" href="${urlOf(x, p)}"/>`).concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${urlOf('th', p)}"/>`).join('\n');
   return `  <url>\n    <loc>${urlOf(l, p)}</loc>\n    <lastmod>${today}</lastmod>\n${alts}\n  </url>`;
 }));

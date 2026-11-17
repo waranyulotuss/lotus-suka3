@@ -1,0 +1,30 @@
+{
+  "_note": "ร้านค้าในศูนย์ ห้ามใส่ชื่อร้านที่ยังไม่ได้รับการยืนยันจากสาขา รายการที่ is_sample=true จะมีป้าย 'ตัวอย่าง' และหน้านี้จะไม่ถูกส่งให้ Google (noindex) จนกว่าจะมีร้านจริงอย่างน้อย 1 ร้าน. category = food | drink | service | health | other. promo เว้นว่างได้. valid_until รูปแบบ YYYY-MM-DD",
+  "categories": [
+    { "id": "food",    "icon": "🍜", "name": { "th": "อาหาร",       "en": "Food" } },
+    { "id": "drink",   "icon": "☕", "name": { "th": "เครื่องดื่ม",  "en": "Drinks" } },
+    { "id": "service", "icon": "🧰", "name": { "th": "บริการ",       "en": "Services" } },
+    { "id": "health",  "icon": "💊", "name": { "th": "สุขภาพ",       "en": "Health" } },
+    { "id": "other",   "icon": "🛍️", "name": { "th": "อื่นๆ",        "en": "Other" } }
+  ],
+  "items": [
+    { "id": "sample-food", "is_sample": true, "category": "food",
+      "name": { "th": "[ชื่อร้านอาหาร]", "en": "[Restaurant name]" },
+      "desc": { "th": "[เมนูแนะนำของร้าน]", "en": "[Signature dishes]" },
+      "where": { "th": "[ตำแหน่งในศูนย์ เช่น ชั้น 1 ใกล้ทางเข้า]", "en": "[Location, e.g. ground floor near the entrance]" },
+      "hours": { "th": "[เวลาเปิด-ปิดร้าน]", "en": "[Shop hours]" },
+      "promo": { "th": "[โปรโมชันของร้าน]", "en": "[Shop promotion]" }, "valid_until": "" },
+    { "id": "sample-drink", "is_sample": true, "category": "drink",
+      "name": { "th": "[ชื่อร้านเครื่องดื่ม]", "en": "[Drinks shop name]" },
+      "desc": { "th": "[เมนูแนะนำของร้าน]", "en": "[Signature drinks]" },
+      "where": { "th": "[ตำแหน่งในศูนย์]", "en": "[Location]" },
+      "hours": { "th": "[เวลาเปิด-ปิดร้าน]", "en": "[Shop hours]" },
+      "promo": { "th": "", "en": "" }, "valid_until": "" },
+    { "id": "sample-service", "is_sample": true, "category": "service",
+      "name": { "th": "[ชื่อร้านบริการ]", "en": "[Service shop name]" },
+      "desc": { "th": "[ประเภทบริการ]", "en": "[Type of service]" },
+      "where": { "th": "[ตำแหน่งในศูนย์]", "en": "[Location]" },
+      "hours": { "th": "[เวลาเปิด-ปิดร้าน]", "en": "[Shop hours]" },
+      "promo": { "th": "", "en": "" }, "valid_until": "" }
+  ]
+}
