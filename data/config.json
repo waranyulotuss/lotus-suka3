@@ -133,7 +133,7 @@
   },
   "analytics": {
     "_note": "goatcounter_code = ชื่อที่สมัครที่ goatcounter.com (เช่น lotus-suka3 จะได้ lotus-suka3.goatcounter.com). google_site_verification = ค่า content จาก meta tag ใน Search Console. เว้นว่าง = ปิด",
-    "goatcounter_code": "",
+    "goatcounter_code": "lotus-suka3",
     "google_site_verification": ""
   }
 }
