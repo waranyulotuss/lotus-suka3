@@ -42,6 +42,20 @@
   `"hero": { "src": "assets/img/store.jpg", "alt": { "th": "หน้าสาขา…", "en": "Branch front…" } }`
 - รูปแชร์ LINE/Facebook คือ `assets/img/og.png` (1200×630)
 
+## วัด traffic (ใช้อีเมล Outlook ได้)
+**1) ตัวนับผู้เข้าชม (GoatCounter ฟรี ไม่ใช้คุกกี้)**
+1. สมัครที่ goatcounter.com ด้วยอีเมล Outlook ตั้งชื่อ เช่น `lotus-suka3`
+2. ใน `data/config.json` ส่วน `analytics` ใส่ `"goatcounter_code": "lotus-suka3"` แล้ว Commit
+3. ดูผลที่ `https://lotus-suka3.goatcounter.com` จะเห็นจำนวนผู้เข้าชม แหล่งที่มา (รวม `utm_source=qr`) และจำนวนครั้งที่กดปุ่ม: `event/call-th`, `event/navigate-th`, `event/line-th`, `event/order-web-th` (ฝั่งอังกฤษลงท้าย `-en`)
+
+**2) ดูว่าคนค้นหาอะไรแล้วเจอเว็บ (Google Search Console)**
+1. สร้าง Google Account โดยเลือก "ใช้อีเมลปัจจุบันของฉัน" ใส่ Outlook (ไม่ต้องมี Gmail)
+2. search.google.com/search-console → Add property → URL prefix → เลือกวิธี **HTML tag** → คัดลอกค่า `content="..."`
+3. ใส่ใน `analytics.google_site_verification` ใน `config.json` → Commit → รอ 1-2 นาที → กด Verify → ส่ง `sitemap.xml`
+4. (เสริม) Bing Webmaster Tools ล็อกอินด้วย Microsoft account แล้วนำเข้าจาก Search Console ได้
+
+**3) แยกช่องทาง** ใช้ลิงก์ที่มี UTM: QR ในสาขา `?utm_source=qr&utm_medium=store`, โพสต์ Facebook `?utm_source=facebook&utm_medium=social`, LINE `?utm_source=line&utm_medium=social`
+
 ## การเปิดใช้บน GitHub Pages
 1. สร้าง repo (public) แล้วอัปโหลดไฟล์ทั้งหมดในโฟลเดอร์นี้ไปที่ branch `main`
 2. Settings → Pages → Source: **Deploy from a branch** → `main` / `(root)` → Save

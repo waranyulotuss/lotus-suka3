@@ -47,6 +47,7 @@ function head(lang, t, { title, desc, path: p = '', noindex = false, base }) {
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(desc)}">
 <meta name="theme-color" content="#306FC7">
+${cfg.analytics && cfg.analytics.google_site_verification ? `<meta name="google-site-verification" content="${esc(cfg.analytics.google_site_verification)}">` : ''}
 ${noindex ? '<meta name="robots" content="noindex">' : ''}
 <link rel="canonical" href="${url}">
 <link rel="alternate" hreflang="th" href="${urlOf('th', p)}">

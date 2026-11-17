@@ -156,12 +156,24 @@
     $('#special').hidden = !sp.length;
   }
 
+  /* ---------- วัดผล (GoatCounter ไม่ใช้คุกกี้; เปิดเมื่อใส่ analytics.goatcounter_code) ---------- */
+  function initAnalytics() {
+    var code = cfg.analytics && cfg.analytics.goatcounter_code;
+    if (!code) return;
+    var s = document.createElement('script'); s.async = true; s.src = 'https://gc.zgo.at/count.js';
+    s.setAttribute('data-goatcounter', 'https://' + code + '.goatcounter.com/count'); document.head.appendChild(s);
+    function track(name) { try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: 'event/' + name + '-' + lang, title: name, event: true }); } catch (e) {} }
+    [['#btn-call', 'call'], ['#btn-nav', 'navigate'], ['#btn-nav2', 'navigate-map'], ['#btn-line', 'line'], ['#btn-web', 'order-web'], ['#btn-app', 'order-app'], ['#btn-review', 'review'], ['.langbtn', 'switch-lang']]
+      .forEach(function (x) { var e = $(x[0]); if (e) e.addEventListener('click', function () { track(x[1]); }); });
+    var tel = document.querySelector('#contact-list a[href^="tel:"]'); if (tel) tel.addEventListener('click', function () { track('call-contact'); });
+  }
+
   /* ---------- เริ่มทำงาน ---------- */
   document.querySelectorAll('[data-setlang]').forEach(function (a) { a.addEventListener('click', function () { try { localStorage.setItem('lang', a.dataset.setlang); } catch (e) {} }); });
   Promise.all([fetchJSON('i18n/' + lang + '.json'), fetchJSON('data/config.json'), fetchJSON('data/promotions.json'), fetchJSON('data/services.json')])
     .then(function (r) {
       T = r[0]; cfg = r[1]; applyI18n();
-      renderContact(); renderHours(); renderPromos(r[2]); renderServices(r[3]); renderStatus();
+      renderContact(); initAnalytics(); renderHours(); renderPromos(r[2]); renderServices(r[3]); renderStatus();
       setInterval(renderStatus, 30000);
     })
     .catch(function (e) { console.warn('load failed', e); var m = $('#status-main'); if (m) m.textContent = ''; });

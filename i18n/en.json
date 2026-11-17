@@ -66,7 +66,7 @@
   "footer.privacy": "Privacy policy",
   "footer.address": "Branch address",
   "privacy.h1": "Privacy Policy",
-  "privacy.p1": "This is a branch information page. It has no forms, no accounts, and does not collect visitors' personal data.",
+  "privacy.p1": "This is a branch information page. It has no forms, no accounts, and does not collect visitors' personal data. It uses a cookie-free visitor counter (GoatCounter) to count visits and button clicks such as call and directions, anonymously and without cross-site tracking.",
   "privacy.p2": "The site remembers your language choice (Thai/English) in your own browser only. Nothing is sent anywhere.",
   "privacy.p3": "The embedded map and links to LINE, Facebook and Google Maps are third-party services with their own privacy policies.",
   "privacy.back": "Back to home",
