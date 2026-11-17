@@ -10,7 +10,6 @@
 | `/en/` | en | เนื้อหาเทียบเท่า | ใช่ |
 | `/privacy.html`, `/en/privacy.html` | th/en | นโยบายความเป็นส่วนตัว | ใช่ (ค่าต่ำ) |
 | `/404.html` | th+en | ไม่พบหน้า | noindex |
-| `/admin/` | th | หลังบ้านเจ้าของ | noindex, ไม่อยู่ใน sitemap |
 
 - **hreflang**: th / en / x-default ครบทุกหน้า ชี้กลับกันถูกต้อง (ตรวจแล้ว) และ `<html lang>` ตรงภาษา
 - **canonical**: ตั้งเองทุกหน้า · **sitemap.xml**: 4 URL พร้อม xhtml:link alternate · **robots.txt**: Allow ทั้งหมด + ลิงก์ sitemap
@@ -67,7 +66,7 @@
 
 | เฟส | งาน | เจ้าของ | ประตูตรวจ (gate) |
 |---|---|---|---|
-| A | เก็บข้อมูลจริงตามข้อ 9 ของบรีฟ แล้วกรอก `config.json`, `promotions.json`, `services.json`, i18n | เจ้าของสาขา | หน้า `/admin/` เช็กลิสต์ครบ; ไม่มี `[ ]` ค้าง |
+| A | เก็บข้อมูลจริงตามข้อ 9 ของบรีฟ แล้วกรอก `config.json`, `promotions.json`, `services.json`, i18n | เจ้าของสาขา | ค้นหา `[` ในไฟล์ `data/` และ `i18n/` ไม่พบข้อความตัวอย่างค้าง |
 | B | push repo `lotus-suka3` เปิด Pages | เจ้าของ/ผู้ช่วย | URL ตอบ 200 ทั้ง th/en, hreflang, sitemap resolve |
 | C | เปลี่ยน `is_sample=false`, rebuild | ผู้ช่วย | JSON-LD มี address/geo/phone/openingHours/sameAs; ผ่าน Rich Results Test |
 | D | แก้ P0/P1: description หน้า privacy; pre-render เวลา-ที่อยู่ลง HTML | ผู้ช่วย | Lighthouse ≥ 90 ทั้ง 4 หมวด คงเดิม; ข้อความตรงกับ JS |
@@ -87,7 +86,7 @@
 - ไม่ใส่ schema รีวิว/คะแนนดาว ถ้าไม่มีข้อมูลจริงที่แสดงบนหน้า
 
 ## 9. ความเสี่ยงและข้อสังเกตด้านความปลอดภัย
-- `/admin/` ไม่มีการตรวจสิทธิ์ (GitHub Pages ใส่ล็อกอินไม่ได้) ใครรู้ลิงก์เปิดได้ แต่เห็นแค่ลิงก์กับเช็กลิสต์ ถ้าไม่ต้องการ ให้ลบโฟลเดอร์ `admin/` ออกจาก repo หรือใช้ Cloudflare Access ถ้าย้ายไป Cloudflare Pages
+- ไม่มีหน้า admin บนเว็บ: ดูสถิติที่ GoatCounter (`lotus-suka3.goatcounter.com`) และ Search Console ซึ่งต้องล็อกอินด้วยบัญชีเจ้าของ
 - ทุกอย่างใน repo เป็นสาธารณะ ห้ามใส่ token/รหัสผ่าน
 
 ## ภาคผนวก: การคัดกรอง 27 สกิล SEO (สรุป)
